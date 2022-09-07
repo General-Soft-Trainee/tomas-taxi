@@ -26,14 +26,16 @@ function ForgotPassword({ isOpened, onClose }) {
   const {
     handleSubmit,
     control,
+    reset,
     formState: { errors, isValid }
-  } = useForm({ defaultValues: { email: '' }, mode: 'onTouched' });
+  } = useForm({ defaultValues: { email: '' }, mode: 'all' });
 
   const onSubmit = async ({ email }) => {
     await dispatch(resetUserPassword({ email: email.toLowerCase() }))
       .unwrap()
       .catch(({ message }) => {
         dispatch(addNotification({ type: NOTIFICATION_TYPES.ERROR, message }));
+        reset({ email: '' });
       });
     onClose();
   };

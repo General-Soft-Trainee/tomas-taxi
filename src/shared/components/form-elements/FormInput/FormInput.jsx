@@ -29,19 +29,18 @@ function FormInput({ name, rules, type, className, error, placeholder, control }
 
   return (
     <Controller
-      render={({ field }) => (
+      render={({ field, fieldState: { isTouched } }) => (
         <div className={`${classes.container} ${className}`}>
           <FormControl variant="outlined" color="form">
-            <InputLabel htmlFor={name} error={!!error}>
+            <InputLabel htmlFor={name} error={isTouched ? !!error : ''}>
               {placeholder}
             </InputLabel>
             <OutlinedInput
               id={name}
-              error={!!error}
+              error={isTouched ? !!error : ''}
               value=""
               type={computedInputType(type, showPassword)}
               {...field}
-              inputRef={field.ref}
               placeholder={placeholder}
               endAdornment={
                 type === INPUT_TYPES.PASSWORD && (
@@ -58,7 +57,7 @@ function FormInput({ name, rules, type, className, error, placeholder, control }
               }
               label={placeholder}
             />
-            <FormHelperText error={!!error}>{error ? error?.message : ''}</FormHelperText>
+            <FormHelperText error={!!error}>{isTouched ? error?.message : ''}</FormHelperText>
           </FormControl>
         </div>
       )}
