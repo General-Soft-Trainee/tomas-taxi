@@ -30,14 +30,17 @@ jobs:
         with:
           node-version: '14'
       - name: 'Deploy to Vercel'
-        run: |
+        uses: amondnet/vercel-action@v20
+        id: vercel
+        with:
+        vercel-token: TOKEN
+          vercel-org-id: ORG_ID
+          vercel-project-id: PROJECT_ID
+          scope: grigorylebedev-good-softco
+          run: |
           prodRun=""
           if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
             prodRun="--prod"
           fi
 
           npx vercel --token ${VERCEL_TOKEN} $prodRun
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
