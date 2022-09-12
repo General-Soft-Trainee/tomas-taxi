@@ -24,6 +24,8 @@ jobs:
   vercel-deploy:
     needs: e2e-tests
     runs-on: ubuntu-latest
+    permissions:
+      deployments: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -31,7 +33,8 @@ jobs:
         with:
           node-version: '14'
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          vercel-args: '--prod' #Optional
+          vercel-args: ${{ fromJSON('["--prod, ""]')[github.ref != 'refs/heads/main'] }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}} #Required
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
-          -run: vercel ls
+          scope: ${{ secrets.VERCEL_PROJECT_ID}}
+          working-directory: ./
