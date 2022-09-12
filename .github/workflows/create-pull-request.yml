@@ -1,7 +1,7 @@
-name: test-pull
-on: [pull]
+name: create-pull-request
+on: [pull_request]
 jobs:
-  check-bats-version:
+  create-pull-request:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
