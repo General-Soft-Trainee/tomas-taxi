@@ -2,7 +2,7 @@
 const { test } = require('@playwright/test');
 
 test.use({
-  headless: false,
+  headless: true,
   baseURL: 'https://tomas-taxi.vercel.app'
 });
 
