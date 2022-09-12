@@ -29,7 +29,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: npm run build
       - uses: amondnet/vercel-action@v20
         with:
         vercel-token: ${{ secrets.VERCEL_TOKEN }}  # Required
