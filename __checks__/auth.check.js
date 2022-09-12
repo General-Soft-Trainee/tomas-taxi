@@ -1,6 +1,8 @@
-const { chromium } = require('playwright')
+/* eslint-disable import/no-unresolved */
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { chromium } = require('playwright');
 
-async function run () {
+async function run() {
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
