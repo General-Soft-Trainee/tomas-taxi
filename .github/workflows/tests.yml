@@ -31,7 +31,7 @@ jobs:
       - uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          vercel-args: --prod
+          vercel-args: ${{ fromJSON('["--prod", ""]')[github.ref != 'refs/heads/master']}}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}} #Required
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
           vercel-project-name: tomas-taxi
