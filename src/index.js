@@ -14,6 +14,8 @@ import { registerInterceptors } from './services/axios.service';
 
 registerInterceptors();
 
+console.log('Preview from GitHub Actions works!');
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
