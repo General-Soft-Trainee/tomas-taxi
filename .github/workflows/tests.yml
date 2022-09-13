@@ -28,12 +28,9 @@ jobs:
       deployments: write
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
       - uses: amondnet/vercel-action@v20
         with:
-          node-version: '14'
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
           vercel-args: ${{ fromJSON('["--prod", ""]')[github.ref != 'refs/heads/master']}}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}} #Required
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
-          scope: GeneralSoft
