@@ -12,3 +12,4 @@ export const useAppDispatch: () => AppDispatch = useDispatch;
 export default store;
 
 // console.log()
+// console.log(2);
