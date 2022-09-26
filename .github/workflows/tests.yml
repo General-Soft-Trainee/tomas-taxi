@@ -1,36 +1,32 @@
 name: tests
 on: [pull_request]
 jobs:
-  unit-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install
-      - run: npm run test
-  e2e-tests:
-    needs: unit-tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install
-      - run: npx playwright install
-      - run: npm run test:e2e
+  # unit-tests:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '14'
+  #     - run: npm install
+  #     - run: npm run test
+  # e2e-tests:
+  #   needs: unit-tests
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '14'
+  #     - run: npm install
+  #     - run: npx playwright install
+  #     - run: npm run test:e2e
   vercel-deploy:
-    needs: e2e-tests
+    # needs: e2e-tests
     runs-on: ubuntu-latest
-    permissions:
-      deployments: write
     steps:
       - uses: actions/checkout@v3
-      - uses: amondnet/vercel-action@v20
+      - uses: actions/setup-node@v3
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}} #Required
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
-          vercel-project-name: tomas-taxi
+          node-version: '14'
+      - run: vercel -v
