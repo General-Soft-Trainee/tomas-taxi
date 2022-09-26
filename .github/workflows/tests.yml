@@ -33,4 +33,4 @@ jobs:
         with:
           node-version: '14'
       - run: vercel -v
-      - run: vercel --token=${{ secrets.VERCEL_TOKEN }} --github=${{secrets.GITHUB_TOKEN}}
+      - run: vercel --token=${{ secrets.VERCEL_TOKEN }}
