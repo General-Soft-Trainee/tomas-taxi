@@ -1,4 +1,7 @@
 name: tests
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on: [pull_request]
 jobs:
   # unit-tests:
@@ -30,5 +33,4 @@ jobs:
         with:
           node-version: '14'
       - run: vercel -v
-      - run: vercel project ls --token=${{ secrets.VERCEL_TOKEN }}
-      - run: vercel --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel --token=${{ secrets.VERCEL_TOKEN }} --github=${{secrets.GITHUB_TOKEN}}
