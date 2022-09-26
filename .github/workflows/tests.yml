@@ -32,5 +32,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: vercel -v
+      - run: npm install -g vercel@latest
       - run: vercel --token=${{ secrets.VERCEL_TOKEN }}
