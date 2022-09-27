@@ -16,7 +16,7 @@ test.describe.serial('Authentication', () => {
   test('Login', async () => {
     await page.goto('/login');
     await page.locator('#email').fill('lebedevgrisha21@gmail.com');
-    await page.locator('#password').fill('4815162342l');
+    await page.locator('#password').fill('4815162342');
     await page.locator('text="Login"').click();
     await page.waitForNavigation({ url: '/home' });
   });
