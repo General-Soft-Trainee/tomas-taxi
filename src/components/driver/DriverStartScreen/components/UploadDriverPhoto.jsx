@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { useTranslation } from 'react-i18next';
+
 import { PRIVATE_ROUTES } from '../../../../constants/app.constants';
 
 import Button from '../../../../shared/components/Button/Button';
@@ -24,6 +26,7 @@ import { inputType, src } from './upload-driver-photo.constants';
 import classes from './upload-driver-photo.module.css';
 
 function UploadDriverPhoto() {
+  const { t } = useTranslation();
   const {
     userData: { car, id }
   } = useSelector(userSelector);
@@ -76,11 +79,11 @@ function UploadDriverPhoto() {
   return (
     <div className={classes.container}>
       <div className={classes.photo__wrapper}>
-        <h2 className={classes.photo__title}>Car photo</h2>
+        <h2 className={classes.photo__title}>{t('driver_photo.title')}</h2>
         <p className={classes.photo__text}>
-          Please select photo of your car.
+          {t('driver_photo.text1')}
           <br />
-          IMPORTANT: You can upload photo only once!
+          {t('driver_photo.text2')}
         </p>
         <div className={classes.photo__content}>
           <div
@@ -103,17 +106,17 @@ function UploadDriverPhoto() {
               color={BUTTON_COLORS.SECONDARY}
               onClick={handleFileUpload}
             >
-              Upload photo
+              {t('button.upload_photo')}
             </Button>
             <Button
-              size={BUTTON_SIZES.BIG}
+              size={BUTTON_SIZES.LARGE}
               color={BUTTON_COLORS.SUCCESS}
               variant={BUTTON_VARIANTS.CONTAINED}
               onClick={handleFileSave}
               className={classes.button}
               disabled={!isValid}
             >
-              Save
+              {t('button.save')}
             </Button>
           </div>
         </div>

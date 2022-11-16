@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -17,13 +17,19 @@ import { addNotification } from '../../../slices/notifications.slice';
 
 import { NOTIFICATION_TYPES } from '../Notifications/components/Notification/notification.constants';
 
+import { USER_ROLES } from '../../../constants/user-roles.constants';
+
 import classes from './page-wrapper.module.css';
 
 function PageWrapper({ children }) {
   const dispatch = useDispatch();
-  const { isAuthenticated } = useSelector(userSelector);
+  const {
+    userData: { role },
+    isAuthenticated
+  } = useSelector(userSelector);
   const { pathname } = useLocation();
   const isPrivatePage = !Object.values(PUBLIC_ROUTES).includes(pathname);
+
   useEffect(() => {
     if (isPrivatePage && isAuthenticated) {
       dispatch(getUser())
@@ -31,13 +37,15 @@ function PageWrapper({ children }) {
         .catch(({ message }) => {
           dispatch(addNotification({ type: NOTIFICATION_TYPES.ERROR, message }));
         });
-      // dispatch(getActiveTrip())
-      //   .unwrap()
-      //   .catch(({ message }) => {
-      //     dispatch(addNotification({ type: NOTIFICATION_TYPES.ERROR, message }));
-      //   });
     }
-  }, [dispatch, isAuthenticated, isPrivatePage]);
+    if (isPrivatePage && isAuthenticated && role !== USER_ROLES.ADMIN && role !== '') {
+      dispatch(getActiveTrip())
+        .unwrap()
+        .catch(({ message }) => {
+          dispatch(addNotification({ type: NOTIFICATION_TYPES.ERROR, message }));
+        });
+    }
+  }, [dispatch, isAuthenticated, isPrivatePage, role]);
 
   return (
     <div className={classes.wrapper}>

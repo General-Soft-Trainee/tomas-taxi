@@ -6,6 +6,8 @@ import { DateTimePicker, LocalizationProvider } from '@mui/x-date-pickers';
 
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
+import { useTranslation } from 'react-i18next';
+
 import Button from '../../../../../../../shared/components/Button/Button';
 import {
   BUTTON_COLORS,
@@ -39,6 +41,7 @@ function AdminBlockModal({
   userInfo,
   getUsers
 }: AdminBlockModalProps) {
+  const { t } = useTranslation();
   const {
     isModalOpened: isConfirmationModalOpened,
     openModal: openConfirmationModal,
@@ -74,7 +77,7 @@ function AdminBlockModal({
         dispatch(
           addNotification({
             type: NOTIFICATION_TYPES.SUCCESS,
-            message: `${capitalize(userInfo.role)} successfully blocked`
+            message: `${capitalize(userInfo.role)} ${t('notifications_message.block_success')}`
           })
         );
       })
@@ -106,7 +109,7 @@ function AdminBlockModal({
               className={classes.button}
               onClick={handleOpenBlockUntil}
             >
-              Block until
+              {t('button.block_until')}
             </Button>
           </div>
         )}
@@ -115,7 +118,7 @@ function AdminBlockModal({
             <div className={classes.modal__date_picker_until}>
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DateTimePicker
-                  label="Block until"
+                  label={t('input_name.block_until')}
                   disablePast
                   value={dateTimePickerValue}
                   ref={handleDateTimePickerRef}
@@ -133,7 +136,7 @@ function AdminBlockModal({
                 color={BUTTON_COLORS.ERROR}
                 onClick={handleCloseBlockUntil}
               >
-                Back
+                {t('button.back')}
               </Button>
               <ConfirmationModal
                 isOpened={isConfirmationModalOpened}
@@ -151,7 +154,7 @@ function AdminBlockModal({
                 onClick={openConfirmationModal}
                 disabled={!dateTimePickerValue}
               >
-                Accept
+                {t('button.accept')}
               </Button>
             </div>
           </>

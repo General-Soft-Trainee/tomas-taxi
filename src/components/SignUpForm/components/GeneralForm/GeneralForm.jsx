@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import { useTranslation } from 'react-i18next';
+
 import { INPUT_TYPES } from '../../../../shared/components/form-elements/FormInput/form-input.constants';
 import { OPTIONS_VALIDATE } from '../../../helpers/OPTIONS_VALIDATE';
 import FormInput from '../../../../shared/components/form-elements/FormInput/FormInput';
@@ -10,11 +12,12 @@ import { USER_SELECT } from '../../sign-up-form.constants';
 import classes from './general-form.module.css';
 
 function GeneralForm({ control, errors, watch }) {
+  const { t } = useTranslation();
   return (
     <div>
       <FormInput
         name="email"
-        placeholder="Email"
+        placeholder={t('input_name.email')}
         type={INPUT_TYPES.EMAIL}
         control={control}
         className={classes.form__input}
@@ -23,7 +26,7 @@ function GeneralForm({ control, errors, watch }) {
       />
       <FormInput
         name="password"
-        placeholder="Password"
+        placeholder={t('input_name.password')}
         type={INPUT_TYPES.PASSWORD}
         control={control}
         className={classes.form__input}
@@ -32,24 +35,25 @@ function GeneralForm({ control, errors, watch }) {
       />
       <FormInput
         name="confirmPassword"
-        placeholder="Confirm password"
+        placeholder={t('input_name.confirm_password')}
         type={INPUT_TYPES.PASSWORD}
         control={control}
         className={classes.form__input}
         error={errors?.confirmPassword}
         rules={{
-          required: 'Confirm password is required',
+          required: t('input_errors.confirm_password.required'),
           validate: (value) => {
             if (watch('password') !== value) {
-              return 'Your passwords do no match';
+              return t('input_errors.confirm_password.message');
             }
-            return () => {};
+            // eslint-disable-next-line prettier/prettier
+            return () => { };
           }
         }}
       />
       <FormInput
         name="firstName"
-        placeholder="First name"
+        placeholder={t('input_name.first_name')}
         type={INPUT_TYPES.TEXT}
         control={control}
         className={classes.form__input}
@@ -58,7 +62,7 @@ function GeneralForm({ control, errors, watch }) {
       />
       <FormInput
         name="lastName"
-        placeholder="Last name"
+        placeholder={t('input_name.last_name')}
         type={INPUT_TYPES.TEXT}
         control={control}
         className={classes.form__input}
@@ -67,7 +71,7 @@ function GeneralForm({ control, errors, watch }) {
       />
       <FormSelect
         name="role"
-        label="Role"
+        label={t('input_name.role')}
         items={USER_SELECT}
         className={classes.form__select}
         error={errors?.role}

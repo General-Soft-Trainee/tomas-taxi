@@ -1,0 +1,185 @@
+{
+  "welcome": "Willkommen",
+  "home_title": "das Beste Taxi der Welt",
+  "home_content_text": "Wir helfen Ihnen, sich schnell und bequem überall auf der Welt zu bewegen",
+  "admin_title": "Verwaltung",
+  "order_text": "Bitte geben Sie ein, wo und wo Sie wollen. Und wir werden in wenigen Sekunden ein Auto für Sie finden.",
+  "forgot_password_text": "Wir müssen Ihre E-Mail-Adresse kennen, um einen Link zum Zurücksetzen Ihres Passworts zu senden.",
+  "destination": "Wohin",
+  "source": "Woher",
+  "current_order_title": "Aktuelle Bestellung",
+  "current_order_not_found_data": "Es gibt derzeit keine freien Fahrer. Aktualisieren Sie die Liste, um die Vorschläge des Fahrers zu sehen.",
+  "current_order_cancel_text": "Sind Sie sicher, dass Sie die Bestellung stornieren möchten?",
+  "orders_history_title": "Bestellhistorie",
+  "items_per_page": "Elemente auf der Seite",
+  "reports_title": "Berichte",
+  "not_found_page": "Keine Seite gefunden",
+  "users_title": {
+    "drivers": "Fahrer",
+    "clients": "Kunden"
+  },
+  "driver_orders_title": "Aufträge",
+  "create_offer_modal_text": "Bitte bieten Sie Ihren Preis für die Bestellung an",
+  "order_row": {
+    "who": "Wer",
+    "from": "Woher",
+    "to": "Wohin"
+  },
+  "characteristics": {
+    "ch1": "Schnell",
+    "ch2": "Komfort",
+    "ch3": "24/7 Hilfe"
+  },
+  "log_out": "Abmelden",
+  "input_name": {
+    "title": "Registrieren",
+    "email": "Mail",
+    "password": "Passwort",
+    "confirm_password": "Passwort Bestätigen",
+    "first_name": "Name",
+    "last_name": "Nachname",
+    "role": "Rolle",
+    "make": "Marke",
+    "model": "Model",
+    "year": "Jahr",
+    "color": "Farbe",
+    "block_until": "Blockieren, bis"
+  },
+  "car": "Das Auto",
+  "driver_car_info": {
+    "info": "Info",
+    "make": "Marke",
+    "model": "Model",
+    "year": "Jahr",
+    "color": "Farbe"
+  },
+  "driver_photo": {
+    "title": "Foto der Maschine",
+    "text1": "Bitte wählen Sie ein Foto Ihres Autos aus.",
+    "text2": "WICHTIG: Du kannst ein Foto nur einmal hochladen!"
+  },
+  "rate_driver_title": "Bewerten Sie den Fahrer",
+  "driver_report": "Beschwerde",
+  "accept_offer_text": "Sie sind sicher, dass Sie das Angebot von annehmen möchten",
+  "sign_up": "Registrieren",
+  "sign_in": "Eingang",
+  "active_trip": {
+    "title": "Aktive Fahrt",
+    "from": "Woher",
+    "to": "Wohin",
+    "price": "Preis",
+    "driver": "Fahrer",
+    "car": "Das Auto",
+    "rating": "Bewertung"
+  },
+  "forgot_password": "Passwort Vergessen",
+  "no_account": "Ich habe kein Konto",
+  "keep_me_logged_in": "Angemeldet bleiben",
+  "blocked_users_title": {
+    "block_client": "Client blockieren",
+    "block_driver": "Fahrer sperren"
+  },
+  "hint": {
+    "user_blocked_permanently": "Benutzer für immer gesperrt",
+    "user_blocked_until": "Benutzer ist bis gesperrt"
+  },
+  "unblock_text": "Sie sind sicher, dass Sie Ihr Konto für",
+  "button": {
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "create_order": "Neu bestellen",
+    "view_history": "Verlauf Anzeigen",
+    "start_treep": "Streifen starten",
+    "all_users": "Alle Benutzer",
+    "reports": "Berichte",
+    "order": "Bestellen",
+    "cancel_order": "Bestellung Stornieren",
+    "cancel": "Abbrechen",
+    "ok": "Ok",
+    "offer": "Vorschlagen",
+    "accept": "Akzeptieren",
+    "finish_treep": "Reise beenden",
+    "report_driver": "Beschweren",
+    "submit": "Senden",
+    "car": "Das Auto",
+    "block": "Block",
+    "unblock": "Entsperren",
+    "back": "Zurück",
+    "block_permanently": "Für immer sperren",
+    "block_until": "Blockieren, bis",
+    "go_home": "Nach Hause",
+    "upload_photo": "Foto hochladen",
+    "save": "Speichern",
+    "send": "Senden"
+  },
+  "table": {
+    "date": "Datum",
+    "from": "Woher",
+    "to": "Wohin",
+    "driver": "Fahrer",
+    "client": "Client",
+    "rate": "Bewertung",
+    "coast": "Kosten",
+    "report": "Beschwerde",
+    "car": "Das Auto",
+    "comment": "Kommentare",
+    "action": "Aktionen",
+    "email": "Mail",
+    "first_name": "Name",
+    "last_name": "Nachname"
+  },
+  "notifications_message": {
+    "register_success": "Wir haben einen Aktivierungslink an die E-Mail-Adresse gesendet. Bitte aktivieren Sie Ihr Konto.",
+    "login_success": "Sie sind erfolgreich angemeldet",
+    "forgot_success": "Wir haben einen Link zum Zurücksetzen des Passworts an Ihre E-Mail-Adresse gesendet.",
+    "create_offer_success": "Ihr Vorschlag wurde erfolgreich gesendet",
+    "cancel_offer_success": "Ihr Angebot wurde abgebrochen",
+    "create_order_success": "Sie haben den Auftrag erfolgreich erstellt",
+    "cancel_order_success": "Sie haben die Bestellung erfolgreich storniert",
+    "block_success": "erfolgreich blockiert",
+    "unblock_success": "erfolgreich freigeschaltet"
+  },
+  "input_errors": {
+    "email": {
+      "required": "E-Mails können nicht leer sein",
+      "message": "Die Post ist unausweichlich"
+    },
+    "password": {
+      "required": "Das Passwort darf nicht leer sein",
+      "messageMin": "Das Passwort muss mindestens 6 Zeichen lang sein",
+      "messageMax": "Das Passwort darf nicht größer als 20 Zeichen sein"
+    },
+    "first_name": {
+      "required": "Der Name darf nicht leer sein"
+    },
+    "last_name": {
+      "required": "Nachname darf nicht leer sein"
+    },
+    "role": {
+      "required": "Die Rolle darf nicht leer sein"
+    },
+    "make": {
+      "required": "Eine Marke darf nicht leer sein"
+    },
+    "model": {
+      "required": "Das Modell darf nicht leer sein"
+    },
+    "year": {
+      "required": "Das Jahr darf nicht leer sein",
+      "messageMin": "Das Jahr muss mindestens 4 Zeichen lang sein",
+      "messageMax": "Das Jahr darf nicht größer als 4 Zeichen sein"
+    },
+    "color": {
+      "required": "Die Farbe darf nicht leer sein"
+    },
+    "source": {
+      "required": "Woher kann es nicht leer sein?"
+    },
+    "destination": {
+      "required": "Wo kann nicht leer sein"
+    },
+    "price": {
+      "required": "Der Preis darf nicht leer sein"
+    }
+  }
+}

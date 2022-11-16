@@ -2,6 +2,8 @@ import { useReducer, useCallback } from 'react';
 
 import { useDispatch } from 'react-redux';
 
+import { t } from 'i18next';
+
 import { NOTIFICATION_TYPES } from '../../../shared/components/Notifications/components/Notification/notification.constants';
 import { API_ROUTES } from '../../../constants/api.constants';
 import { axiosService } from '../../../services/axios.service';
@@ -35,7 +37,7 @@ export function useOrders() {
       dispatch(
         addNotification({
           type: NOTIFICATION_TYPES.SUCCESS,
-          message: 'You have successfully created an order'
+          message: t('notifications_message.create_order_success')
         })
       );
     } catch (error) {
@@ -52,7 +54,7 @@ export function useOrders() {
       dispatch(
         addNotification({
           type: NOTIFICATION_TYPES.SUCCESS,
-          message: 'You have successfully cancel an order'
+          message: t('notifications_message.cancel_order_success')
         })
       );
     } catch (error) {

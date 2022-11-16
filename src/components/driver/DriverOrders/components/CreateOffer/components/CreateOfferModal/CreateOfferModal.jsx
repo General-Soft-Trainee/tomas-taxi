@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 
 import { useForm } from 'react-hook-form';
 
+import { useTranslation } from 'react-i18next';
+
 import Modal from '../../../../../../../shared/components/Modal/Modal';
 import { MODAL_SIZE } from '../../../../../../../shared/components/Modal/modal.constants';
 import FormInput from '../../../../../../../shared/components/form-elements/FormInput/FormInput';
@@ -30,6 +32,7 @@ import ProgressSpinner from '../../../../../../../shared/components/ProgressSpin
 import classes from './create-offer-modal.module.css';
 
 function CreateOfferModal({ isOpened, closeModal, order, getOffers }) {
+  const { t } = useTranslation();
   const { createOffer, status } = useOffers();
   const {
     handleSubmit,
@@ -53,20 +56,20 @@ function CreateOfferModal({ isOpened, closeModal, order, getOffers }) {
     <Modal isOpened={isOpened} closeModal={closeModal} size={MODAL_SIZE.MEDIUM}>
       <div className={classes.modal__content}>
         <div className={classes.modal__item}>
-          <h5 className={classes.modal__title}>Who:</h5>
+          <h5 className={classes.modal__title}>{t('order_row.who')}:</h5>
           <p
             className={classes.modal__text}
           >{`${order.client.firstName} ${order.client.lastName}`}</p>
         </div>
         <div className={classes.modal__item}>
-          <h5 className={classes.modal__title}>From:</h5>
+          <h5 className={classes.modal__title}>{t('order_row.from')}:</h5>
           <p className={classes.modal__text}>{order.source}</p>
         </div>
         <div className={classes.modal__item}>
-          <h5 className={classes.modal__title}>To:</h5>
+          <h5 className={classes.modal__title}>{t('order_row.to')}:</h5>
           <p className={classes.modal__text}>{order.destination}</p>
         </div>
-        <p className={classes.offer__text}>Please offer your price for order</p>
+        <p className={classes.offer__text}>{t('create_offer_modal_text')}</p>
         <form className={classes.modal__form} onSubmit={handleSubmit(onSubmit)}>
           <FormInput
             type={INPUT_TYPES.NUMBER}
@@ -84,7 +87,7 @@ function CreateOfferModal({ isOpened, closeModal, order, getOffers }) {
               type={BUTTON_TYPES.BUTTON}
               onClick={closeModal}
             >
-              Cancel
+              {t('button.cancel')}
             </Button>
             <Button
               type={BUTTON_TYPES.SUBMIT}
@@ -94,7 +97,7 @@ function CreateOfferModal({ isOpened, closeModal, order, getOffers }) {
               className={classes.modal__button}
               disabled={!isValid}
             >
-              Ok
+              {t('button.ok')}
             </Button>
           </div>
         </form>

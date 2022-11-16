@@ -6,6 +6,8 @@ import {
   isRejectedWithValue
 } from '@reduxjs/toolkit';
 
+import { t } from 'i18next';
+
 import { getUsers, userBlocked } from '../api/hooks/useUsers/users.actions';
 
 import { API_ROUTES } from '../constants/api.constants';
@@ -49,7 +51,7 @@ export const registrationUser = createAsyncThunk(
       dispatch(
         addNotification({
           type: NOTIFICATION_TYPES.SUCCESS,
-          message: 'We sent the activation link to email address. Please activate your account.'
+          message: t('notifications_message.register_success')
         })
       );
     } catch (error) {
@@ -82,7 +84,7 @@ export const loginUser = createAsyncThunk(
       dispatch(
         addNotification({
           type: NOTIFICATION_TYPES.SUCCESS,
-          message: 'You have successfully logged in'
+          message: t('notifications_message.login_success')
         })
       );
     } catch (error) {
@@ -99,7 +101,7 @@ export const resetUserPassword = createAsyncThunk(
       dispatch(
         addNotification({
           type: NOTIFICATION_TYPES.SUCCESS,
-          message: 'We sent the link for reset password on your email address.'
+          message: t('notfications_message.forgot_success')
         })
       );
     } catch (error) {

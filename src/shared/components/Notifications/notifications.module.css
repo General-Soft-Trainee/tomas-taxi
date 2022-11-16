@@ -12,6 +12,7 @@
   width: 600px;
   min-height: 70px;
   border-radius: 10px;
+  word-break: break-all;
   text-align: left;
   padding: 20px 70px 20px 30px;
   margin-top: 15px;

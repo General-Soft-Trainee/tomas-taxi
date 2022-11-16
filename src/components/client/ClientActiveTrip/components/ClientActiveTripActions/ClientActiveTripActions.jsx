@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import Button from '../../../../../shared/components/Button/Button';
 import {
   BUTTON_COLORS,
@@ -11,6 +13,7 @@ import RateDriverModal from '../RateDriverModal/RateDriverModal';
 import classes from './client-active-trip-actions.module.css';
 
 function ClientActiveTripActions() {
+  const { t } = useTranslation();
   const { isModalOpened, openModal, closeModal } = useModal();
   return (
     <>
@@ -23,7 +26,7 @@ function ClientActiveTripActions() {
         className={classes.treep__button}
         onClick={openModal}
       >
-        Finish treep
+        {t('button.finish_treep')}
       </Button>
     </>
   );

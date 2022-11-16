@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import Button from '../../../../../../../shared/components/Button/Button';
 import {
@@ -15,6 +16,7 @@ import DriverCarInfoModal from '../../../../../../DriverCarInfoModal/DriverCarIn
 import classes from './driver-car.module.css';
 
 function DriverCar({ info, hasDriverName, car }) {
+  const { t } = useTranslation();
   const { isModalOpened, openModal, closeModal } = useModal(false);
   return (
     <div className={`${hasDriverName ? classes.container : null}`}>
@@ -35,7 +37,7 @@ function DriverCar({ info, hasDriverName, car }) {
         onClick={openModal}
         className={classes.car__button}
       >
-        Car
+        {t('button.car')}
       </Button>
     </div>
   );

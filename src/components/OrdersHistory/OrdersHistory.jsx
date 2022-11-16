@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import { Pagination } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { useTranslation } from 'react-i18next';
+
 import {
   PAGINATION_VARIANTS_NUMBERS,
   REQUEST_STATUS,
@@ -28,6 +30,7 @@ import NotFoundData from '../../shared/components/NotFoundData/NotFoundData';
 import classes from './orders-history.module.css';
 
 function OrdersHistory({ renderTable }) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const {
     inactiveTrips: { items = [], total },
@@ -65,12 +68,12 @@ function OrdersHistory({ renderTable }) {
   return (
     <div className={classes.container}>
       <div className={classes.block__title}>
-        <h2 className={classes.title}>Order’s History</h2>
+        <h2 className={classes.title}>{t('orders_history_title')}</h2>
       </div>
       <div className={classes.line} />
       {total !== 0 ? (
         <div className={classes.dropdown__block}>
-          <div className={classes.dropdown__title}>Items per page</div>
+          <div className={classes.dropdown__title}>{t('items_per_page')}</div>
           <DropDown
             value={rowsPerPage}
             onListItemClick={handleChangeRowsPerPage}

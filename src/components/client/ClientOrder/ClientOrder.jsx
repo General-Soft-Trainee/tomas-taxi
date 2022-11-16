@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
+import { useTranslation } from 'react-i18next';
+
 import { INPUT_TYPES } from '../../../shared/components/form-elements/FormInput/form-input.constants';
 
 import FormInput from '../../../shared/components/form-elements/FormInput/FormInput';
@@ -34,6 +36,7 @@ import classes from './client-order.module.css';
 import { defaultOrderValues } from './client-order.constants';
 
 function ClientOrder() {
+  const { t } = useTranslation();
   const { createOrder, status } = useOrders();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -60,17 +63,14 @@ function ClientOrder() {
   return (
     <div className={classes.container}>
       <div className={classes.block__text}>
-        <p className={classes.text}>
-          Please input Source and Destination for your order. And we will find a car for you in a
-          few seconds
-        </p>
+        <p className={classes.text}>{t('order_text')}</p>
         <div className={classes.line} />
       </div>
       <form className={classes.form__wrapper} onSubmit={handleSubmit(onSubmit)}>
         <div className={classes.form__container}>
           <FormInput
             name="source"
-            placeholder="Source"
+            placeholder={t('source')}
             type={INPUT_TYPES.TEXT}
             control={control}
             error={errors?.source}
@@ -78,7 +78,7 @@ function ClientOrder() {
           />
           <FormInput
             name="destination"
-            placeholder="Destination"
+            placeholder={t('destination')}
             type={INPUT_TYPES.TEXT}
             className={classes.input}
             control={control}
@@ -93,13 +93,17 @@ function ClientOrder() {
           type={BUTTON_TYPES.SUBMIT}
           disabled={!isValid}
         >
-          Order
+          {t('button.order')}
         </Button>
       </form>
       <div className={classes.decoration__container}>
-        <p className={`${classes.decoration__text} ${classes.decoration__text_top}`}>Destination</p>
+        <p className={`${classes.decoration__text} ${classes.decoration__text_top}`}>
+          {t('destination')}
+        </p>
         <img src="/img/navigate.png" alt="NavigationImage" />
-        <p className={`${classes.decoration__text} ${classes.decoration__text_bottom}`}>Source</p>
+        <p className={`${classes.decoration__text} ${classes.decoration__text_bottom}`}>
+          {t('source')}
+        </p>
       </div>
     </div>
   );

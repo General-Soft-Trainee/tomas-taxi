@@ -17,7 +17,7 @@ function Header({ isPrivatePage }) {
       {isPrivatePage && (
         <div className={classes.header}>
           <div className={classes.container}>
-            <Link to={PRIVATE_ROUTES.HOME}>
+            <Link to={PRIVATE_ROUTES.HOME} className={classes.header__link}>
               <h1 className={classes.header__title}>GeneralSoft Taxi</h1>
             </Link>
           </div>

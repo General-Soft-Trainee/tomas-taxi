@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
+
 import {
   BUTTON_TYPES,
   BUTTON_VARIANTS,
@@ -32,6 +34,7 @@ import CarForm from './components/CarForm/CarForm';
 import GeneralForm from './components/GeneralForm/GeneralForm';
 
 function SignUpForm() {
+  const { t } = useTranslation();
   const { status } = useSelector(userSelector);
   const [isHasSectionDriver, setIsSectionDriver] = useState(false);
   const dispatch = useDispatch();
@@ -90,7 +93,7 @@ function SignUpForm() {
   return (
     <form className={classes.form__wrapper} onSubmit={handleSubmit(onSubmit)}>
       <div className={classes.form__content}>
-        <h1 className={classes.form__title}>Sign Up</h1>
+        <h1 className={classes.form__title}>{t('sign_up')}</h1>
         <div className={classes.form__container}>
           <GeneralForm control={control} errors={errors} watch={watch} />
           {isHasSectionDriver && <CarForm control={control} errors={errors} />}
@@ -101,7 +104,7 @@ function SignUpForm() {
             color={BUTTON_COLORS.FORM}
             className={classes.form__button}
           >
-            Register
+            {t('button.register')}
           </Button>
         </div>
       </div>
