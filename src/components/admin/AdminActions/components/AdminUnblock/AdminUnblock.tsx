@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
 import { capitalize } from '@mui/material';
 
+import { useTranslation } from 'react-i18next';
+
 import { userBlocked } from '../../../../../api/hooks/useUsers/users.actions';
 import { REQUEST_STATUS } from '../../../../../constants/app.constants';
 
@@ -22,6 +24,7 @@ import { useAppDispatch } from '../../../../../store';
 import { AdminUnblockProps } from './admin-unblock.types';
 
 function AdminUnblock({ userInfo, getUsers }: AdminUnblockProps) {
+  const { t } = useTranslation();
   const { isModalOpened, openModal, closeModal } = useModal();
   const { status } = useSelector(userSelector);
   const dispatch = useAppDispatch();
@@ -35,7 +38,7 @@ function AdminUnblock({ userInfo, getUsers }: AdminUnblockProps) {
         dispatch(
           addNotification({
             type: NOTIFICATION_TYPES.SUCCESS,
-            message: `${capitalize(userInfo.role)} unlocked successfully`
+            message: `${capitalize(userInfo.role)} ${t('notifications_message.unblock_success')}`
           })
         );
       })
@@ -59,7 +62,7 @@ function AdminUnblock({ userInfo, getUsers }: AdminUnblockProps) {
         isOpened={isModalOpened}
         onCancel={closeModal}
         onConfirm={handleUnblockAccept}
-        text={`Are you sure you want to unlock account for ${userInfo.firstName} ${userInfo.lastName}`}
+        text={`${t('unblock_text')} ${userInfo.firstName} ${userInfo.lastName}`}
       />
       <Button
         variant={BUTTON_VARIANTS.CONTAINED}
@@ -67,7 +70,7 @@ function AdminUnblock({ userInfo, getUsers }: AdminUnblockProps) {
         color={BUTTON_COLORS.SUCCESS}
         onClick={openModal}
       >
-        Unblock
+        {t('button.unblock')}
       </Button>
     </>
   );

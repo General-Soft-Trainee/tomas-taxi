@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
+
 import Button from '../../../../../shared/components/Button/Button';
 import {
   BUTTON_COLORS,
@@ -39,6 +41,7 @@ import { NOTIFICATION_TYPES } from '../../../../../shared/components/Notificatio
 import classes from './rate-driver-modal.module.css';
 
 function RateDriverModal({ isOpened, closeModal }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { createReport } = useReports();
@@ -85,7 +88,7 @@ function RateDriverModal({ isOpened, closeModal }) {
     <Modal isOpened={isOpened} closeModal={closeModal}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={classes.rate__driver__content}>
-          <h2 className={classes.rate__driver__title}>Rate Driver</h2>
+          <h2 className={classes.rate__driver__title}>{t('rate_driver_title')}</h2>
           <div>
             <Controller
               control={control}
@@ -99,7 +102,7 @@ function RateDriverModal({ isOpened, closeModal }) {
           {isOpenedDriverReport && (
             <Textarea
               name="report"
-              placeholder="Driver report"
+              placeholder={t('driver_report')}
               type={INPUT_TYPES.TEXT}
               control={control}
               className={classes.rate__driver__textarea}
@@ -114,7 +117,7 @@ function RateDriverModal({ isOpened, closeModal }) {
                 className={classes.rate__driver_button}
                 onClick={showDriverReport}
               >
-                Report driver
+                {t('button.report_driver')}
               </Button>
             )}
             <Button
@@ -124,7 +127,7 @@ function RateDriverModal({ isOpened, closeModal }) {
               type={BUTTON_TYPES.SUBMIT}
               disabled={!isValid}
             >
-              Submit
+              {t('button.submit')}
             </Button>
           </div>
         </div>

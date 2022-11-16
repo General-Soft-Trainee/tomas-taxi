@@ -26,3 +26,7 @@
   margin: 0;
   font-size: 90px;
 }
+
+.header__link {
+  width: fit-content;
+}

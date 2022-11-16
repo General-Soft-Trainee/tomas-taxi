@@ -2,6 +2,8 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
 import { Pagination } from '@mui/material';
 
+import { useTranslation } from 'react-i18next';
+
 import { useReports } from '../../../../../api/hooks/useReports/useReports';
 
 import {
@@ -21,13 +23,12 @@ import { calculatePagesCount } from '../../../../helpers/helpers';
 
 import { DropDownItem } from '../../../../../shared/components/DropDown/drop-down.types';
 
-import { getUsers } from '../../../../../api/hooks/useUsers/users.actions';
-
 import { ReportsProps } from './reports-types';
 
 import classes from './reports.module.css';
 
 function Reports({ renderTable }: ReportsProps) {
+  const { t } = useTranslation();
   const {
     getReports,
     status,
@@ -65,11 +66,11 @@ function Reports({ renderTable }: ReportsProps) {
   return (
     <div className={classes.container}>
       <div className={classes.block__title}>
-        <h2 className={classes.title}>Reports</h2>
+        <h2 className={classes.title}>{t('reports_title')}</h2>
       </div>
       <div className={classes.line} />
       <div className={classes.dropdown__block}>
-        <div className={classes.dropdown__title}>Items per page</div>
+        <div className={classes.dropdown__title}>{t('items_per_page')}</div>
         <DropDown
           value={rowsPerPage}
           onListItemClick={handleChangeRowsPerPage}

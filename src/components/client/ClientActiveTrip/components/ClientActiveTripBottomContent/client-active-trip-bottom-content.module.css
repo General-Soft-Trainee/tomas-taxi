@@ -13,6 +13,10 @@
   color: #fff;
 }
 
+.item__info__block {
+  position: relative;
+}
+
 .info__text {
   margin: 0;
   font-family: 'Rubik';
@@ -21,5 +25,6 @@
   line-height: 43px;
   color: #fff;
   position: absolute;
-  margin-left: 140px;
+  width: 500px;
+  margin-left: 20px;
 }

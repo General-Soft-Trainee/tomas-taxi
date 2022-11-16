@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 
 import { useDispatch } from 'react-redux';
 
+import { useTranslation } from 'react-i18next';
+
 import Button from '../../../../shared/components/Button/Button';
 
 import { INPUT_TYPES } from '../../../../shared/components/form-elements/FormInput/form-input.constants';
@@ -19,6 +21,7 @@ import { NOTIFICATION_TYPES } from '../../../../shared/components/Notifications/
 import classes from './forgot-password.module.css';
 
 function ForgotPassword({ isOpened, onClose }) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const {
     handleSubmit,
@@ -41,16 +44,14 @@ function ForgotPassword({ isOpened, onClose }) {
     <div>
       {isOpened && (
         <div className={classes.container}>
-          <p className={classes.text}>
-            We need to know your email to send the link to reset you password.
-          </p>
+          <p className={classes.text}>{t('forgot_password_text')}</p>
           <button type="button" className={classes.container__close} onClick={onClose}>
             +
           </button>
           <form className={classes.form__container} onSubmit={handleSubmit(onSubmit)}>
             <FormInput
               name="email"
-              placeholder="Email"
+              placeholder={t('input_name.email')}
               type={INPUT_TYPES.EMAIL}
               control={control}
               error={errors?.email}
@@ -63,7 +64,7 @@ function ForgotPassword({ isOpened, onClose }) {
               type={BUTTON_TYPES.SUBMIT}
               disabled={!isValid}
             >
-              Send
+              {t('button.send')}
             </Button>
           </form>
         </div>

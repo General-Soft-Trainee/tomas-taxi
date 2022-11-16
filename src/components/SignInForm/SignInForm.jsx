@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
+
 import FormInput from '../../shared/components/form-elements/FormInput/FormInput';
 import FormCheckbox from '../../shared/components/form-elements/FormCheckbox/FormCheckbox';
 import { INPUT_TYPES } from '../../shared/components/form-elements/FormInput/form-input.constants';
@@ -35,6 +37,7 @@ import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import classes from './sign-in-form.module.css';
 
 function SignInForm() {
+  const { t } = useTranslation();
   const [loginRequestStatus, setLoginRequestStatus] = useState(REQUEST_STATUS.IDLE);
   const [isOpenedForgotPassword, setIsOpenedForgotPassword] = useState(false);
   const [isKeepLoggedInChecked, setIsKeepLoggedInChecked] = useState(false);
@@ -86,12 +89,12 @@ function SignInForm() {
       <ForgotPassword isOpened={isOpenedForgotPassword} onClose={closeForgotPassword} />
       <form className={classes.form__wrapper} onSubmit={handleSubmit(onSubmit)}>
         <div className={classes.form__content}>
-          <h1 className={classes.form__title}>Sign In</h1>
+          <h1 className={classes.form__title}>{t('sign_in')}</h1>
           <div className={classes.form__container}>
             <div>
               <FormInput
                 name="email"
-                placeholder="Email"
+                placeholder={t('input_name.email')}
                 type={INPUT_TYPES.EMAIL}
                 control={control}
                 className={classes.form__input}
@@ -100,7 +103,7 @@ function SignInForm() {
               />
               <FormInput
                 name="password"
-                placeholder="Password"
+                placeholder={t('input_name.password')}
                 type={INPUT_TYPES.PASSWORD}
                 control={control}
                 className={classes.form__input}
@@ -109,7 +112,7 @@ function SignInForm() {
               />
               <FormCheckbox
                 id="checkbox"
-                label="Keep me logged in"
+                label={t('keep_me_logged_in')}
                 checked={isKeepLoggedInChecked}
                 onChange={handleCheckboxChange}
                 className={classes.form__checkbox}
@@ -121,14 +124,14 @@ function SignInForm() {
                 disabled={!isValid}
                 className={classes.form__button}
               >
-                Login
+                {t('button.login')}
               </Button>
               <button className={classes.button__link} type="button" onClick={showForgotPassword}>
-                Forgot Password?
+                {t('forgot_password')}
               </button>
               <Link to={PUBLIC_ROUTES.REGISTER} className={classes.link}>
                 <button className={classes.button__link} type="button" onClick={showForgotPassword}>
-                  I don’t have an account
+                  {t('no_account')}
                 </button>
               </Link>
             </div>

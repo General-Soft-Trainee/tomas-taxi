@@ -7,9 +7,9 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import theme from './styles/theme';
-
 import App from './App';
 import store from './store/index';
+import './i18n/i18n';
 import { registerInterceptors } from './services/axios.service';
 
 registerInterceptors();

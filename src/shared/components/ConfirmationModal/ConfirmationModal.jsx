@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import { useTranslation } from 'react-i18next';
+
 import Modal from '../Modal/Modal';
 import Button from '../Button/Button';
 import { MODAL_SIZE } from '../Modal/modal.constants';
@@ -8,6 +10,7 @@ import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_VARIANTS } from '../Button/button.c
 import classes from './confirmation-modal.module.css';
 
 function ConfirmationModal({ isOpened, text, onCancel, onConfirm }) {
+  const { t } = useTranslation();
   return (
     <Modal isOpened={isOpened} size={MODAL_SIZE.LARGE} hasCloseIcon={false} closeModal={onCancel}>
       <div>
@@ -20,7 +23,7 @@ function ConfirmationModal({ isOpened, text, onCancel, onConfirm }) {
             className={classes.button}
             onClick={onCancel}
           >
-            Cancel
+            {t('button.cancel')}
           </Button>
           <Button
             size={BUTTON_SIZES.MEDIUM}
@@ -28,7 +31,7 @@ function ConfirmationModal({ isOpened, text, onCancel, onConfirm }) {
             variant={BUTTON_VARIANTS.CONTAINED}
             onClick={onConfirm}
           >
-            Ok
+            {t('button.ok')}
           </Button>
         </div>
       </div>
@@ -44,8 +47,10 @@ ConfirmationModal.propTypes = {
 };
 
 ConfirmationModal.defaultProps = {
-  onCancel: () => {},
-  onConfirm: () => {}
+  // eslint-disable-next-line prettier/prettier
+  onCancel: () => { },
+  // eslint-disable-next-line prettier/prettier
+  onConfirm: () => { }
 };
 
 export default ConfirmationModal;

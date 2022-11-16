@@ -1,0 +1,188 @@
+{
+  "welcome": "Welcome",
+  "home_title": "The best taxi in the world",
+  "home_content_text": "We will help you quickly and comfortably move anywhere in the world",
+  "admin_title": "Administration",
+  "order_text": "Please input Source and Destination for your order. And we will find a car for you in a few seconds",
+  "forgot_password_text": "We need to know your email to send the link to reset you password.",
+  "destination": "Destination",
+  "source": "Source",
+  "current_order_title": "Current order",
+  "current_order_not_found_data": "No drivers found at this time. Refresh the list to see driver‘s offers.",
+  "current_order_cancel_text": "Are you sure you want to cancel the order?",
+  "orders_history_title": "Order’s History",
+  "items_per_page": "Items per page",
+  "reports_title": "Reports",
+  "not_found_page": "Not found page",
+  "users_title": {
+    "drivers": "Drivers",
+    "clients": "Clients"
+  },
+  "driver_orders_title": "Orders",
+  "create_offer_modal_text": "Please offer your price for order",
+  "order_row": {
+    "who": "Who",
+    "from": "From",
+    "to": "To"
+  },
+  "characteristics": {
+    "ch1": "Quick",
+    "ch2": "Comfort",
+    "ch3": "24/7 Supports"
+  },
+  "log_out": "Log Out",
+  "input_name": {
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm password",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "role": "Role",
+    "make": "Make",
+    "model": "Model",
+    "year": "Year",
+    "color": "Color",
+    "block_until": "Block until"
+  },
+  "sign_up": "Sign Up",
+  "sign_in": "Sign In",
+  "active_trip": {
+    "title": "Active trip",
+    "from": "From",
+    "to": "To",
+    "price": "Price",
+    "driver": "Driver",
+    "car": "Car",
+    "rating": "Rating"
+  },
+  "car": "Car",
+  "driver_car_info": {
+    "info": "Info",
+    "make": "Make",
+    "model": "Model",
+    "year": "Year",
+    "color": "Color"
+  },
+  "driver_photo": {
+    "title": "Car photo",
+    "text1": "Please select photo of your car.",
+    "text2": "IMPORTANT: You can upload photo only once!"
+  },
+  "rate_driver_title": "Rate Driver",
+  "driver_report": "Driver report",
+  "accept_offer_text": "Are you sure you want to accept the offer from",
+  "forgot_password": "Forgot Password",
+  "no_account": "I don't have an account",
+  "keep_me_logged_in": "Keep me logged in",
+  "blocked_users_title": {
+    "block_client": "Block client",
+    "block_driver": "Block driver"
+  },
+  "hint": {
+    "user_blocked_permanently": "User is blocked permanently",
+    "user_blocked_until": "User is blocked until"
+  },
+  "unblock_text": "Are you sure you want to unblock account for",
+  "button": {
+    "login": "Login",
+    "register": "Register",
+    "create_order": "Create order",
+    "view_history": "View history",
+    "start_treep": "Start treep",
+    "all_users": "All users",
+    "reports": "Reports",
+    "order": "Order",
+    "cancel_order": "Cancel order",
+    "cancel": "Cancel",
+    "ok": "Ok",
+    "offer": "Offer",
+    "accept": "Accept",
+    "finish_treep": "Finish treep",
+    "report_driver": "Report driver",
+    "submit": "Submit",
+    "car": "Car",
+    "block": "Block",
+    "unblock": "Unblock",
+    "back": "Back",
+    "block_permanently": "Block permanently",
+    "block_until": "Block until",
+    "go_home": "Go home",
+    "upload_photo": "Upload photo",
+    "save": "Save",
+    "send": "Send"
+  },
+  "table": {
+    "date": "Date",
+    "from": "From",
+    "to": "To",
+    "driver": "Driver",
+    "client": "Client",
+    "rate": "Rate",
+    "coast": "Coast",
+    "report": "Report",
+    "car": "Car",
+    "comment": "Comment",
+    "action": "Action",
+    "email": "Email",
+    "first_name": "First name",
+    "last_name": "Last name"
+  },
+  "notifications_message": {
+    "register_success": "We sent the activation link to email address. Please activate your account.",
+    "login_success": "You have successfully logged in",
+    "forgot_success": "We sent the link for reset password on your email address.",
+    "create_offer_success": "Your offer was successfully sent",
+    "cancel_offer_success": "Your offer was cancel",
+    "create_order_success": "You have successfully created an order",
+    "cancel_order_success": "You have successfully cancel an order",
+    "block_success": "successfully blocked",
+    "unblock_success": "unblocked successfully"
+  },
+  "input_errors": {
+    "email": {
+      "required": "Email is required",
+      "message": "Email does not pass validation"
+    },
+    "password": {
+      "required": "Password is required",
+      "messageMin": "Password need to be 6 characters",
+      "messageMax": "Password must be no more than 20 characters"
+    },
+    "confirm_password": {
+      "required": "Confirm password is required",
+      "message": "Your passwords do no match"
+    },
+    "first_name": {
+      "required": "First name is required"
+    },
+    "last_name": {
+      "required": "Last name is required"
+    },
+    "role": {
+      "required": "Role is required"
+    },
+    "make": {
+      "required": "Make is required"
+    },
+    "model": {
+      "required": "Model is required"
+    },
+    "year": {
+      "required": "Year is required",
+      "messageMin": "Year need to be 4 characters",
+      "messageMax": "Year must be no more than 4 characters"
+    },
+    "color": {
+      "required": "Color is required"
+    },
+    "source": {
+      "required": "Source is required"
+    },
+    "destination": {
+      "required": "Destination is required"
+    },
+    "price": {
+      "required": "Price is required"
+    }
+  }
+}

@@ -1,60 +1,63 @@
+import '../../i18n/i18n';
+import { t } from 'i18next';
+
 export const OPTIONS_VALIDATE = {
   EMAIL: {
-    required: 'Email is required',
+    required: t('input_errors.email.required'),
     pattern: {
       value:
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      message: 'Email does not pass validation'
+      message: t('input_errors.email.message')
     }
   },
   PASSWORD: {
-    required: 'Password is required',
+    required: t('input_errors.password.required'),
     minLength: {
       value: 6,
-      message: 'Password need to be 6 characters'
+      message: t('input_errors.password.messageMin')
     },
     maxLength: {
       value: 20,
-      message: 'Password must be no more than 20 characters'
+      message: t('input_errors.password.messageMax')
     }
   },
   FIRST_NAME: {
-    required: 'First name is required'
+    required: t('input_errors.first_name.required')
   },
   LAST_NAME: {
-    required: 'Last name is required'
+    required: t('input_errors.last_name.required')
   },
   ROLE: {
-    required: 'Role is required'
+    required: t('input_errors.role.required')
   },
   MAKE: {
-    required: 'Make is required'
+    required: t('input_errors.make.required')
   },
   MODEL: {
-    required: 'Model is required'
+    required: t('input_errors.model.required')
   },
   YEAR: {
-    required: 'Year is required',
+    required: t('input_errors.year.required'),
     minLength: {
       value: 4,
-      message: 'Year need to be 4 characters'
+      message: t('input_errors.year.messageMin')
     },
     maxLength: {
       value: 4,
-      message: 'Year must be no more than 4 characters'
+      message: t('input_errors.year.messageMax')
     }
   },
   COLOR: {
-    required: 'Color is required'
+    required: t('input_errors.color.required')
   },
   SOURCE: {
-    required: 'Source is required'
+    required: t('input_errors.source.required')
   },
   DESTINATION: {
-    required: 'Destination is required'
+    required: t('input_errors.destination.required')
   },
   PRICE: {
-    required: 'Price is required'
+    required: t('input_errors.price.required')
   },
   RATING: {
     required: true

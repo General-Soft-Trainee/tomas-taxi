@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 
+import { useTranslation } from 'react-i18next';
+
 import {
   PAGINATION_VARIANTS_NUMBERS,
   PRIVATE_ROUTES,
@@ -40,6 +42,7 @@ import classes from './admin-users.module.css';
 import { AdminUsersProps } from './admin-users.types';
 
 function AdminUsers({ renderTable }: AdminUsersProps) {
+  const { t } = useTranslation();
   const { pathname } = useLocation();
   const [status, setStatus] = useState(REQUEST_STATUS.IDLE);
   const dispatch = useAppDispatch();
@@ -103,7 +106,7 @@ function AdminUsers({ renderTable }: AdminUsersProps) {
           }
         >
           <Link to={PRIVATE_ROUTES.USERS_CLIENTS}>
-            <h2 className={classes.title}>Clients</h2>
+            <h2 className={classes.title}>{t('users_title.clients')}</h2>
           </Link>
         </div>
         <div
@@ -114,12 +117,12 @@ function AdminUsers({ renderTable }: AdminUsersProps) {
           }
         >
           <Link to={PRIVATE_ROUTES.USERS_DRIVERS}>
-            <h2 className={classes.title}>Drivers</h2>
+            <h2 className={classes.title}>{t('users_title.drivers')}</h2>
           </Link>
         </div>
       </div>
       <div className={classes.dropdown__block}>
-        <div className={classes.dropdown__title}>Items per page</div>
+        <div className={classes.dropdown__title}>{t('items_per_page')}</div>
         <DropDown
           value={rowsPerPage}
           onListItemClick={handleChangeRowsPerPage}

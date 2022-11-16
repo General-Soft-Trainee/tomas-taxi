@@ -4,6 +4,8 @@ import { capitalize } from '@mui/material';
 
 import { useSelector } from 'react-redux';
 
+import { useTranslation } from 'react-i18next';
+
 import { userBlocked } from '../../../../../../../../../api/hooks/useUsers/users.actions';
 import { REQUEST_STATUS } from '../../../../../../../../../constants/app.constants';
 import Button from '../../../../../../../../../shared/components/Button/Button';
@@ -23,6 +25,7 @@ import { useAppDispatch } from '../../../../../../../../../store';
 import { BlockPermanentlyProps } from './block-permanently.types';
 
 function BlockPermanently({ userInfo, closeAdminBlockModal, getUsers }: BlockPermanentlyProps) {
+  const { t } = useTranslation();
   const { isModalOpened, openModal, closeModal } = useModal();
   const dispatch = useAppDispatch();
   const { status } = useSelector(userSelector);
@@ -36,7 +39,7 @@ function BlockPermanently({ userInfo, closeAdminBlockModal, getUsers }: BlockPer
         dispatch(
           addNotification({
             type: NOTIFICATION_TYPES.SUCCESS,
-            message: `${capitalize(userInfo.role)} successfully blocked`
+            message: `${capitalize(userInfo.role)} ${t('notifications_message.block_success')}`
           })
         );
       })
@@ -68,7 +71,7 @@ function BlockPermanently({ userInfo, closeAdminBlockModal, getUsers }: BlockPer
         color={BUTTON_COLORS.ERROR}
         onClick={openModal}
       >
-        Block permanently
+        {t('button.block_permanently')}
       </Button>
     </>
   );

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import Button from '../../../../../shared/components/Button/Button';
 import {
@@ -14,6 +15,7 @@ import CreateOfferModal from './components/CreateOfferModal/CreateOfferModal';
 import classes from './create-offer.module.css';
 
 function CreateOffer({ order, getOffers }) {
+  const { t } = useTranslation();
   const { isModalOpened, openModal, closeModal } = useModal();
   return (
     <>
@@ -30,7 +32,7 @@ function CreateOffer({ order, getOffers }) {
         className={classes.button__offer}
         onClick={openModal}
       >
-        Offer
+        {t('button.offer')}
       </Button>
     </>
   );

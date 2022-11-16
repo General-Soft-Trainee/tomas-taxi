@@ -2,6 +2,8 @@ import { useReducer, useCallback } from 'react';
 
 import { useDispatch } from 'react-redux';
 
+import { t } from 'i18next';
+
 import { API_ROUTES } from '../../../constants/api.constants';
 import { addNotification } from '../../../slices/notifications.slice';
 import { axiosService } from '../../../services/axios.service';
@@ -43,7 +45,7 @@ export function useOffers() {
       dispatch(
         addNotification({
           type: NOTIFICATION_TYPES.SUCCESS,
-          message: 'Your offer was successfully sent'
+          message: t('notifications_message.create_offer_success')
         })
       );
     } catch (error) {
@@ -58,7 +60,10 @@ export function useOffers() {
       dispatchOffers(OFFERS_REQUEST_START);
       await axiosService.delete(`${API_ROUTES.OFFER}/${id}`);
       dispatch(
-        addNotification({ type: NOTIFICATION_TYPES.SUCCESS, message: 'Your offer was cancel' })
+        addNotification({
+          type: NOTIFICATION_TYPES.SUCCESS,
+          message: t('notifications_message.cancel_offer_success')
+        })
       );
     } catch (error) {
       dispatch(

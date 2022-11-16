@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import { useOffers } from '../../../api/hooks/useOffers/useOffers';
 import { useOrders } from '../../../api/hooks/useOrders/useOrders';
 import { REQUEST_STATUS } from '../../../constants/app.constants';
@@ -17,6 +19,7 @@ import CancelOffer from './components/CancelOffer/CancelOffer';
 import CreateOffer from './components/CreateOffer/CreateOffer';
 
 function DriverOrders() {
+  const { t } = useTranslation();
   const { getOffers, offers, status: offerRequestStatus } = useOffers();
   const { getOrders, orders, status: orderRequestStatus } = useOrders();
 
@@ -48,7 +51,7 @@ function DriverOrders() {
   return (
     <div className={classes.container}>
       <div className={classes.block__title}>
-        <h2 className={classes.title}>Orders</h2>
+        <h2 className={classes.title}>{t('driver_orders_title')}</h2>
       </div>
       <div className={classes.line} />
       <div className={classes.driver__orders}>

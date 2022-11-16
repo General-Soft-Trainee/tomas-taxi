@@ -4,6 +4,8 @@ import { Card } from '@mui/material';
 
 import { useDispatch } from 'react-redux';
 
+import { useTranslation } from 'react-i18next';
+
 import Button from '../../../../../shared/components/Button/Button';
 import {
   BUTTON_VARIANTS,
@@ -33,6 +35,7 @@ import RatingAndPrice from './components/RatingAndPrice/RatingAndPrice';
 import { RATING_AND_PRICE_SIZES } from './components/RatingAndPrice/rating-and-price.constants';
 
 function DriverCard({ offer }) {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { isModalOpened, openModal, closeModal } = useModal();
   const {
@@ -70,7 +73,7 @@ function DriverCard({ offer }) {
         isOpened={isAcceptOfferConfirmationModalOpened}
         onCancel={closeAcceptOfferConfirmationModal}
         onConfirm={() => handleSubmitOffer(offer.id)}
-        text={`Are you sure you want to accept the offer from ${offer.driver.firstName} ${offer.driver.lastName}?`}
+        text={`${t('accept_offer_text')} ${offer.driver.firstName} ${offer.driver.lastName}?`}
       />
       <DriverCarInfoModal
         isOpened={isModalOpened}
@@ -99,7 +102,7 @@ function DriverCard({ offer }) {
           className={classes.block__button}
           onClick={handleAcceptOfferClick}
         >
-          Accept
+          {t('button.accept')}
         </Button>
       </div>
     </Card>

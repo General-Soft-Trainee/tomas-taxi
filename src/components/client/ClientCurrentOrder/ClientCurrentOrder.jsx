@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
+
 import Button from '../../../shared/components/Button/Button';
 import Refresh from '../../../shared/components/Refresh/Refresh';
 import {
@@ -35,6 +37,7 @@ import classes from './client-current-order.module.css';
 import DriverCard from './components/DriverCard/DriverCard';
 
 function ClientCurrentOrder() {
+  const { t } = useTranslation();
   const {
     isModalOpened: isConfirmationModalOpened,
     openModal: openConfirmationModal,
@@ -93,10 +96,10 @@ function ClientCurrentOrder() {
         isOpened={isConfirmationModalOpened}
         onCancel={closeConfirmationModal}
         onConfirm={handleCancelOrder}
-        text="Are you sure you want to cancel the order?"
+        text={t('current_order_cancel_text')}
       />
       <div className={classes.block__description}>
-        <h2 className={classes.description__title}>Current order</h2>
+        <h2 className={classes.description__title}>{t('current_order_title')}</h2>
         <div className={classes.line} />
         <p className={classes.description__text}>{`${source} - ${destination}`}</p>
       </div>
@@ -106,7 +109,7 @@ function ClientCurrentOrder() {
         ))}
       </div>
       {offers.length === 0 ? (
-        <NotFoundData text="No drivers found at this time. Refresh the list to see driver‘s offers." />
+        <NotFoundData className={classes.not_found_data} text={t('current_order_not_found_data')} />
       ) : null}
       <Button
         size={BUTTON_SIZES.LARGE}
@@ -115,7 +118,7 @@ function ClientCurrentOrder() {
         variant={BUTTON_VARIANTS.CONTAINED}
         className={classes.block__button}
       >
-        Cancel order
+        {t('button.cancel_order')}
       </Button>
       <Refresh className={classes.refresh} onClick={handleRefresh} />
     </div>

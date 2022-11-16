@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { PRIVATE_ROUTES } from '../../../../../constants/app.constants';
 import Button from '../../../../../shared/components/Button/Button';
 import {
@@ -11,6 +13,7 @@ import Link from '../../../../../shared/components/Link/Link';
 import classes from './admin-actions.module.css';
 
 function AdminActions() {
+  const { t } = useTranslation();
   return (
     <div className={classes.block__buttons}>
       <Link to={PRIVATE_ROUTES.REPORTS}>
@@ -21,7 +24,7 @@ function AdminActions() {
           type={BUTTON_TYPES.BUTTON}
           className={classes.button}
         >
-          Reports
+          {t('button.reports')}
         </Button>
       </Link>
       <Link to={PRIVATE_ROUTES.USERS_CLIENTS}>
@@ -31,7 +34,7 @@ function AdminActions() {
           variant={BUTTON_VARIANTS.CONTAINED}
           type={BUTTON_TYPES.BUTTON}
         >
-          All users
+          {t('button.all_users')}
         </Button>
       </Link>
     </div>

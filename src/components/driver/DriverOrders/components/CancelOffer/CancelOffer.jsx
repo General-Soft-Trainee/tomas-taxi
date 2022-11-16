@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import { useTranslation } from 'react-i18next';
+
 import {
   BUTTON_COLORS,
   BUTTON_SIZES,
@@ -16,6 +18,7 @@ import CancelOfferConfirmationModal from './components/CancelOfferConfirmationMo
 import classes from './cancel-offer.module.css';
 
 function CancelOffer({ order, offerId, getOffers }) {
+  const { t } = useTranslation();
   const {
     isModalOpened: isConfirmationModalOpened,
     openModal: openConfirmationModal,
@@ -37,7 +40,7 @@ function CancelOffer({ order, offerId, getOffers }) {
         className={classes.button__offer}
         onClick={openConfirmationModal}
       >
-        Cancel
+        {t('button.cancel')}
       </Button>
     </>
   );
