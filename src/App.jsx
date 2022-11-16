@@ -103,10 +103,6 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="*" element={<Navigate to={PUBLIC_ROUTES.NOT_FOUND_PAGE} replace />} />
-          <Route path={PUBLIC_ROUTES.NOT_FOUND_PAGE} element={<NotFoundPage />} />
-          <Route path={PUBLIC_ROUTES.REGISTER} element={<SignUpForm />} />
-          <Route path={PUBLIC_ROUTES.LOGIN} element={<SignInForm />} />
           <Route
             path={PRIVATE_ROUTES.USERS_CLIENTS}
             element={
@@ -123,6 +119,14 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route
+            path={PUBLIC_ROUTES.HOME}
+            element={<Navigate to={PUBLIC_ROUTES.LOGIN} replace />}
+          />
+          <Route path="*" element={<Navigate to={PUBLIC_ROUTES.NOT_FOUND_PAGE} replace />} />
+          <Route path={PUBLIC_ROUTES.NOT_FOUND_PAGE} element={<NotFoundPage />} />
+          <Route path={PUBLIC_ROUTES.REGISTER} element={<SignUpForm />} />
+          <Route path={PUBLIC_ROUTES.LOGIN} element={<SignInForm />} />
         </Routes>
       </PageWrapper>
     </div>
