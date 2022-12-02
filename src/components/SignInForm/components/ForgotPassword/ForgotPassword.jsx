@@ -30,9 +30,12 @@ function ForgotPassword({ isOpened, onClose }) {
     formState: { errors, isValid }
   } = useForm({ defaultValues: { email: '' }, mode: 'all' });
 
-  const onSubmit = async ({ email }) => {
-    await dispatch(resetUserPassword({ email: email.toLowerCase() }))
+  const onSubmit = ({ email }) => {
+    dispatch(resetUserPassword({ email: email.toLowerCase() }))
       .unwrap()
+      .then(() => {
+        reset({ email: '' });
+      })
       .catch(({ message }) => {
         dispatch(addNotification({ type: NOTIFICATION_TYPES.ERROR, message }));
         reset({ email: '' });

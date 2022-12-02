@@ -64,7 +64,6 @@ function SignInForm() {
   const onSubmit = ({ email, password }) => {
     setLoginRequestStatus(REQUEST_STATUS.LOADING);
     dispatch(loginUser({ email: email.toLowerCase(), password }))
-      .unwrap()
       .then(() => {
         setLoginRequestStatus(REQUEST_STATUS.SUCCESS);
         navigate(PRIVATE_ROUTES.HOME);
