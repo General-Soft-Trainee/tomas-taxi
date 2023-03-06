@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 
@@ -82,6 +82,8 @@ function SignInForm() {
   if (loginRequestStatus === REQUEST_STATUS.LOADING) {
     return <ProgressSpinner isShow />;
   }
+
+  console.log('sign-in page');
 
   return (
     <div>
